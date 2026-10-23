@@ -2,23 +2,18 @@
 
 Pesquisa política com dados para decisão embasada.
 
-Este repositório reúne estudos que comparam **ações efetivas** de governos, ou seja, o que foi feito quando houve poder de decisão (atos publicados, execução orçamentária, programas, auditorias), e não promessas ou discursos. Também reúne materiais de divulgação derivados desses estudos.
+Este repositório torna públicos os dados e as fontes usados nos stories **"Eu lembro"**, sobre educação e saúde no governo Jair Bolsonaro (2019–2022), publicados no Status do WhatsApp.
 
-## Estudos
+- [`eu-lembro/`](eu-lembro/): os cartões em imagem, a lista de fontes de cada fato (com links) e os scripts que geram as imagens.
 
-Os estudos comparam o governo Lula 3 (2023–) e o governo Jair Bolsonaro (2019–2022), este último como referência do grupo político de Flávio Bolsonaro. Seguem um protocolo PICOC congelado antes da coleta, com as mesmas fontes, buscas e indicadores para os dois governos, valores deflacionados pelo IPCA e sem índice composto.
+Todos os fatos vêm de atos oficiais, auditorias e imprensa de referência. Os critérios de checagem estão no [README dos stories](eu-lembro/README.md#regras-de-checagem).
 
-| Tema | Relatório técnico |
-|---|---|
-| Educação | [Ações efetivas em Educação: Lula 3 × grupo Bolsonaro](https://claude.ai/code/artifact/11a701ec-1831-4fb4-b2cc-714e44ba818e) |
-| Saúde | [Saúde: ações efetivas Lula 3 × grupo Bolsonaro](https://claude.ai/code/artifact/7b715472-226a-4b81-ba92-f840f411d9c2) |
-| Segurança Pública | [Relatório técnico](https://claude.ai/code/artifact/04cc0438-9074-4c3b-b40f-41a37c234cb3) |
+## Estudo de origem
 
-Coleta, verificação e redação dos estudos foram feitas por IA, de propósito, para reduzir vieses humanos num tema polêmico. Não houve validação humana das conclusões.
+Os fatos do story de Educação vêm do estudo comparativo **"Educação: ações efetivas do governo Lula 3 (2023–2026) x grupo Bolsonaro (2019–2022)"**, que segue um protocolo PICOC congelado antes da coleta e aplica as mesmas regras aos dois governos. Dados, fontes, extrações e relatórios: [github.com/gavelino/pesquisa-politica-educacao-2026](https://github.com/gavelino/pesquisa-politica-educacao-2026).
 
-## Materiais de divulgação
-
-- [`eu-lembro/`](eu-lembro/): stories para o Status do WhatsApp sobre educação e saúde no governo Bolsonaro (2019–2022). É uma **seleção** de fatos sobre um dos governos, derivada dos estudos acima, com fonte e link para cada fato.
+- [Relatório resumido](https://github.com/gavelino/pesquisa-politica-educacao-2026/blob/main/relatorios/relatorio_publico_geral.pdf) (PDF)
+- [Relatório técnico completo](https://github.com/gavelino/pesquisa-politica-educacao-2026/blob/main/relatorios/relatorio_tecnico.pdf) (PDF)
 
 ## Licença
 

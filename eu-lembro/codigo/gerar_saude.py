@@ -148,7 +148,6 @@ paginas.append(f"""<section class="pg capa">{furos()}
     <div class="grande" style="font-size: 165px">Eu lembro.<br><em>E você?</em></div>
     <h1 style="margin-top: 96px; font-size: 100px">Não vamos deixar que isso ocorra <span class="risco">novamente.</span></h1>
     <p style="margin-top: 64px">Todos os fatos vêm de atos oficiais, auditorias e imprensa de referência.</p>
-    <p>Esta é uma seleção sobre o governo Bolsonaro. O estudo completo compara o governo Bolsonaro e o atual governo Lula, com as mesmas regras para os dois.</p>
     <p class="ctx" style="margin-top: 40px !important; max-width: 660px">Dados e fontes: github.com/gavelino/pesquisa-politica</p>
   </div>
   <div class="pag">{T}/{T}</div></section>""")

@@ -113,11 +113,11 @@ paginas.append(cartao(4, T, "2019 → 2020",
     fonte="Fontes: Gazeta do Povo, Congresso em Foco, Brasil de Fato, Andes-SN e Lei 15.367/2026"))
 
 paginas.append(cartao(5, T, "junho de 2020",
-    "Bolsonaro apresentou ao país um ministro da Educação com doutorado que não existia.", h1=92,
-    textos=["As universidades de Rosário e Wuppertal negaram os títulos de Carlos Decotelli."],
-    numero="Caiu em 6 dias", ordem="tn",
-    depois=['<p>Nem tomou posse. <b style="font-weight:800; color: var(--giz)">5 nomeados para o MEC em 4 anos:</b> Vélez, Weintraub, Decotelli, Milton Ribeiro e Victor Godoy.</p>'],
-    fonte="Fontes: Agência Brasil, CNN Brasil e Estadão"))
+    "Bolsonaro nomeou um ministro da Educação com doutorado que não existia.", h1=92,
+    numero="Currículo falso", ordem="nt",
+    textos=["As universidades de Rosário e Wuppertal negaram os títulos de Carlos Decotelli, que o MEC divulgava desde 2019. A nomeação caiu em 6 dias, antes da posse.",
+            '<p class="ctx" style="margin-top: 32px !important; font-size: 36px; line-height: 50px; color: #DCDDE3"><b style="font-weight:800; color: var(--giz)">5 nomeados para o MEC em 4 anos:</b> Vélez, Weintraub, Decotelli, Milton Ribeiro e Victor Godoy.</p>'],
+    fonte="Fontes: Agência Brasil, Folhapress, Estadão e CartaCapital"))
 
 paginas.append(cartao(6, T, "março de 2021",
     "Bolsonaro vetou internet para alunos na pandemia.", h1=100,
@@ -132,7 +132,6 @@ paginas.append(f"""<section class="pg capa">{furos()}
     <div class="grande" style="font-size: 165px">Eu lembro.<br><em>E você?</em></div>
     <h1 style="margin-top: 96px; font-size: 100px">Não vamos deixar que isso ocorra <span class="risco">novamente.</span></h1>
     <p style="margin-top: 64px">Todos os fatos vêm de atos oficiais, auditorias e imprensa de referência.</p>
-    <p>Esta é uma seleção sobre o governo Bolsonaro. O estudo completo compara o governo Bolsonaro e o atual governo Lula, com as mesmas regras para os dois.</p>
     <p class="ctx" style="margin-top: 40px !important; max-width: 660px">Dados e fontes: github.com/gavelino/pesquisa-politica</p>
   </div>
   <div class="pag">{T}/{T}</div></section>""")

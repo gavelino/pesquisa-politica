@@ -1,6 +1,6 @@
 # Fontes: story de Educação
 
-Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme o [README](../README.md#regras-de-checagem). "Relatório técnico" = [Ações efetivas em Educação: Lula 3 × grupo Bolsonaro](https://claude.ai/code/artifact/11a701ec-1831-4fb4-b2cc-714e44ba818e).
+Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme o [README](../README.md#regras-de-checagem). "Relatório técnico" = [relatório técnico do estudo comparativo de Educação](https://github.com/gavelino/pesquisa-politica-educacao-2026/blob/main/relatorios/relatorio_tecnico.pdf), cujos dados, fontes e extrações estão em [github.com/gavelino/pesquisa-politica-educacao-2026](https://github.com/gavelino/pesquisa-politica-educacao-2026).
 
 ## 02 · Orçamento das universidades federais (2019→2021)
 
@@ -30,11 +30,13 @@ Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme
 
 ## 05 · Ministro com doutorado que não existia (jun/2020)
 
-- **Fato:** Carlos Decotelli foi anunciado pelo presidente como doutor (Univ. Nacional de Rosário) e pós-doutor (Univ. de Wuppertal). As duas universidades negaram os títulos. A nomeação foi anulada antes da posse.
+- **Fato:** Carlos Decotelli foi anunciado pelo presidente como doutor (Univ. Nacional de Rosário) e pós-doutor (Univ. de Wuppertal). As duas universidades negaram os títulos, que o MEC divulgava desde 2019. A nomeação caiu em 6 dias, antes da posse. O cartão usa "currículo falso" no sentido de currículo com informações falsas, como registrado pela imprensa; não afirma intenção nem crime.
 - **Fontes (D):**
   - Correio Braziliense (Rosário; edição do Lattes): https://www.correiobraziliense.com.br/app/noticia/politica/2020/06/27/interna_politica,867438/ministro-da-educacao-muda-curriculo-apos-reitor-desmentir-sobre-doutor.shtml
   - Jornal de Brasília (Wuppertal; anúncio do presidente): https://jornaldebrasilia.com.br/noticias/politica-e-poder/universidade-alema-nega-que-ministro-da-educacao-tenha-obtido-pos-doutorado/
   - Estadão, via O Povo (versão de Decotelli): https://www.opovo.com.br/noticias/politica/2020/06/29/decotelli-nega-plagio-e-apos-reuniao-com-bolsonaro-afirma-ser-ministro.html
+  - Folhapress, via Banda B ("falsidades" no currículo; edição do Lattes): https://www.bandab.com.br/?p=599206
+  - CartaCapital (o MEC divulgava os títulos desde a passagem dele pelo FNDE): https://www.cartacapital.com.br/?p=133766
 - **Fato:** 5 nomeados para o MEC em 4 anos (Vélez, Weintraub, Decotelli, Milton Ribeiro e Victor Godoy); 4 tomaram posse.
   - Fonte (A): atos de nomeação, conforme o Relatório técnico.
 

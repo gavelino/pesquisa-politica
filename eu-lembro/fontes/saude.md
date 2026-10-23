@@ -1,6 +1,6 @@
 # Fontes: story de Saúde
 
-Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme o [README](../README.md#regras-de-checagem). "Relatório técnico" = [Saúde: ações efetivas Lula 3 × grupo Bolsonaro](https://claude.ai/code/artifact/7b715472-226a-4b81-ba92-f840f411d9c2).
+Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme o [README](../README.md#regras-de-checagem). "Relatório técnico" = relatório técnico do estudo comparativo de Saúde (Lula 3 × governo Bolsonaro), ainda não publicado. Os fatos marcados com essa referência estão listados nas pendências para receber o link da fonte primária.
 
 ## 02 · "E daí?" e os óbitos por COVID
 
@@ -60,6 +60,8 @@ Data de acesso das fontes de imprensa: 22/10/2026. Nível de evidência conforme
   - Fonte (B): TCU, conforme o Relatório técnico.
 
 ## Pendências
+
+- [ ] Links das fontes primárias dos fatos que hoje citam o relatório técnico de Saúde: óbitos por COVID (cartão 02), anulação das notas pelo TCU (03), Manaus (04), ministros (05) e inidoneidade da intermediária (07).
 
 - [ ] Links diretos das matérias sobre a fatura da Madison Biotech (US$ 45 milhões adiantados), cartão 06.
 - [ ] Links diretos das matérias sobre a saída de Mandetta e Teich, cartão 05.
