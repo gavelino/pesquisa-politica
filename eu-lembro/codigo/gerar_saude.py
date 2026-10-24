@@ -53,12 +53,38 @@ p + p { margin-top: 0; }
 .grande { font-family: 'Kalam'; font-weight: 700; font-size: 240px; line-height: .95; color: var(--giz); transform: rotate(-3deg); transform-origin: left bottom; margin-top: 40px; }
 .grande em { font-style: normal; color: var(--sangue); }
 .capa h1 { font-size: 96px; }
-.cita.gigante { font-size: 92px; line-height: 104px; border-left-width: 12px; margin-top: 56px; }
+.cita.gigante { font-size: 84px; line-height: 96px; border-left-width: 12px; margin-top: 56px; }
 .cita.gigante small { font-size: 36px; }
 .lista p { margin-top: 0; }
 .lista p b { font-weight: 800; color: var(--giz); }
 .risco { display: inline; background: var(--sangue); color: #fff; padding: 0 10px; margin-left: -10px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 """
+
+# --- formato de saída -------------------------------------------------------
+# whatsapp: 1080x1920 (padrão)
+# instagram-stories: 1080x1920 com margens livres para a interface do Instagram
+# instagram-carrossel: 1080x1350 (4:5), para posts no feed
+import os
+FORMATO = os.environ.get("FORMATO", "whatsapp")
+if FORMATO == "instagram-stories":
+    _z = 0.85
+    CSS += f"""
+.pg {{ zoom: {_z}; width: {1080/_z:.1f}px; height: {1920/_z:.1f}px; --topo: 470px; }}
+.cab {{ top: 310px; }}
+.fonte {{ bottom: 400px; }}
+.pag {{ bottom: 396px; }}
+p {{ max-width: 1000px; }}
+"""
+elif FORMATO == "instagram-carrossel":
+    _z = 0.8
+    CSS += f"""
+.pg {{ zoom: {_z}; width: {1080/_z:.1f}px; height: {1350/_z:.1f}px; }}
+p {{ max-width: 1080px; }}
+"""
+if FORMATO != "whatsapp":
+    OUT = OUT.parent / f"{OUT.name}-{FORMATO}"
+    OUT.mkdir(parents=True, exist_ok=True)
+# -----------------------------------------------------------------------------
 
 def furos():
     return '<div class="furos">' + '<i></i>' * 5 + '</div>'
@@ -81,14 +107,14 @@ def cartao(n, total, data, titulo, numero=None, textos=(), citacao=None, fonte="
       <div class="corpo">{''.join(partes)}</div>
       <div class="fonte">{fonte}</div><div class="pag">{n}/{total}</div></section>"""
 
-T = 8
+T = 9
 paginas = []
 
 paginas.append(f"""<section class="pg capa">{furos()}
   <div class="corpo" style="top: 330px">
     <div class="grande">Eu<br>lembro.</div>
     <h1 style="margin-top: 112px">O que aconteceu com a saúde no Brasil entre <span class="risco">2019 e 2022</span>.</h1>
-    <p>Seis fatos. Todos com fonte.</p>
+    <p>Sete fatos. Todos com fonte.</p>
   </div>
   <div class="pag">1/{T}</div></section>""")
 
@@ -110,23 +136,29 @@ paginas.append(cartao(3, T, "2020 → 2021",
     fonte="Fontes: Folhapress, Jovem Pan, Poder360 e TCU"))
 
 paginas.append(cartao(4, T, "janeiro de 2021",
-    "Manaus ficou sem oxigênio.",
-    numero="7 dias",
-    textos=["Foi o tempo entre o alerta e a falta de oxigênio nos hospitais.",
-            "No mesmo mês, o Ministério da Saúde lançou em Manaus um aplicativo que receitava cloroquina.",
-            '<p class="ctx">O TCU classificou a conduta do Ministério como “reativa”, sem apontar dolo.</p>'],
-    ordem="nt",
-    fonte="Fontes: TCU, Poder360 e Correio Braziliense"))
+    "Em Manaus, pacientes morreram sem ar nos hospitais.", h1=96,
+    citacao=("“Os hospitais de Manaus viraram câmaras de asfixia.”", "Jesem Orellana, pesquisador da Fiocruz, 14/01/2021"),
+    citaclasse="cita gigante",
+    textos=["O Ministério da Saúde foi alertado 7 dias antes. No mesmo mês, lançou ali um aplicativo que receitava cloroquina."],
+    ordem="ct",
+    fonte="Fontes: TCU, Fiocruz (Radis), Folhapress, Poder360 e Correio Braziliense"))
 
 paginas.append(cartao(5, T, "2020",
     "Três ministros da Saúde em um ano de pandemia.",
     textos=['<div class="lista" style="margin-top: 64px"><p><b>Mandetta</b>, médico: demitido em abril, depois de divergir sobre a condução da pandemia.</p>'
             '<p style="margin-top: 32px"><b>Teich</b>, médico: pediu demissão em 28 dias.</p>'
             '<p style="margin-top: 32px"><b>Pazuello</b>, general do Exército: em 5 dias, assinou o protocolo da cloroquina.</p></div>'],
-    numero="O terceiro nem era médico", menor=True, ordem="tn",
+    numero="O terceiro sequer era profissional da saúde", menor=True, ordem="tn",
     fonte="Fontes: Agência Brasil, G1, Poder360 e Folhapress"))
 
-paginas.append(cartao(6, T, "fev. de 2021",
+paginas.append(cartao(6, T, "ago. de 2020",
+    "A Pfizer ofereceu 70 milhões de doses. O governo recusou.", h1=96,
+    textos=["As primeiras doses poderiam ter chegado em dezembro de 2020. Chegaram em abril de 2021, quatro meses depois."],
+    numero="Até 145 mil mortes evitáveis", menor=True, ordem="tn",
+    depois=['<p class="ctx">Estimativa de pesquisadores apresentada à CPI: de 95 mil a 145 mil mortes pelo atraso na compra de vacinas. Segundo a CPI, 53 e-mails da Pfizer ficaram sem resposta. O governo alegou exigências contratuais da empresa.</p>'],
+    fonte="Fontes: BBC News Brasil, Folhapress, Estadão, Poder360 e Jovem Pan"))
+
+paginas.append(cartao(7, T, "fev. de 2021",
     "A Covaxin foi a vacina mais cara comprada pelo governo.", h1=100,
     numero="US$&nbsp;15 por dose",
     textos=["Pfizer e Janssen saíram por US$ 10. O contrato de R$ 1,6 bilhão foi assinado antes do aval da Anvisa.",
@@ -135,7 +167,7 @@ paginas.append(cartao(6, T, "fev. de 2021",
     ordem="nt",
     fonte="Fontes: Estadão, Poder360, InfoMoney e CNN Brasil"))
 
-paginas.append(cartao(7, T, "out. de 2020",
+paginas.append(cartao(8, T, "out. de 2020",
     "Meses antes, Flávio Bolsonaro levou o dono da empresa da Covaxin ao presidente do BNDES.", h1=92,
     numero="O filho do presidente", menor=True,
     textos=["Francisco Maximiano é dono da Precisa Medicamentos, que intermediou a compra da vacina indiana.",
@@ -152,13 +184,27 @@ paginas.append(f"""<section class="pg capa">{furos()}
   </div>
   <div class="pag">{T}/{T}</div></section>""")
 
+
+# --- paleta "prontuário" (identidade própria do story de Saúde) --------------
+CSS += """
+:root { --fundo: #0B1915; --pauta: rgba(120,210,170,.10); --margem: #E1323C; --giz: #F1F4EF; --cinza: #93A79E; --sangue: #E1323C; }
+.pg { background-image:
+    radial-gradient(ellipse 120% 80% at 50% 40%, transparent 40%, rgba(0,0,0,.55) 100%),
+    repeating-linear-gradient(90deg, transparent 0, transparent 62px, var(--pauta) 62px, var(--pauta) 64px),
+    repeating-linear-gradient(180deg, transparent 0, transparent 62px, var(--pauta) 62px, var(--pauta) 64px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 15px, rgba(120,210,170,.04) 15px, rgba(120,210,170,.04) 16px),
+    repeating-linear-gradient(180deg, transparent 0, transparent 15px, rgba(120,210,170,.04) 15px, rgba(120,210,170,.04) 16px);
+  background-size: auto; background-position: 0 0; background-repeat: repeat; }
+.pg::before { display: none; }
+.furos { display: none; }
+"""
 doc = f"<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><style>{CSS}</style></head><body>{''.join(paginas)}</body></html>"
 (BASE / "stories_saude.html").write_text(doc, encoding="utf-8")
 
-nomes = ["01-capa", "02-mortes-e-dai", "03-cloroquina", "04-manaus", "05-ministros", "06-covaxin", "07-covaxin-flavio", "08-fechamento"]
+nomes = ["01-capa", "02-mortes-e-dai", "03-cloroquina", "04-manaus", "05-ministros", "06-pfizer", "07-covaxin", "08-covaxin-flavio", "09-fechamento"]
 with sync_playwright() as p:
     b = p.chromium.launch()
-    pg = b.new_page(viewport={"width": 1080, "height": 1920}, device_scale_factor=1)
+    pg = b.new_page(viewport={"width": 1400, "height": 2400}, device_scale_factor=1)
     pg.goto((BASE / "stories_saude.html").as_uri())
     pg.wait_for_timeout(600)
     for i, el in enumerate(pg.query_selector_all("section.pg")):

@@ -56,6 +56,32 @@ p + p { margin-top: 0; }
 .risco { display: inline; background: var(--sangue); color: #fff; padding: 0 10px; margin-left: -10px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 """
 
+# --- formato de saída -------------------------------------------------------
+# whatsapp: 1080x1920 (padrão)
+# instagram-stories: 1080x1920 com margens livres para a interface do Instagram
+# instagram-carrossel: 1080x1350 (4:5), para posts no feed
+import os
+FORMATO = os.environ.get("FORMATO", "whatsapp")
+if FORMATO == "instagram-stories":
+    _z = 0.85
+    CSS += f"""
+.pg {{ zoom: {_z}; width: {1080/_z:.1f}px; height: {1920/_z:.1f}px; --topo: 470px; }}
+.cab {{ top: 310px; }}
+.fonte {{ bottom: 400px; }}
+.pag {{ bottom: 396px; }}
+p {{ max-width: 1000px; }}
+"""
+elif FORMATO == "instagram-carrossel":
+    _z = 0.8
+    CSS += f"""
+.pg {{ zoom: {_z}; width: {1080/_z:.1f}px; height: {1350/_z:.1f}px; }}
+p {{ max-width: 1080px; }}
+"""
+if FORMATO != "whatsapp":
+    OUT = OUT.parent / f"{OUT.name}-{FORMATO}"
+    OUT.mkdir(parents=True, exist_ok=True)
+# -----------------------------------------------------------------------------
+
 def furos():
     return '<div class="furos">' + '<i></i>' * 5 + '</div>'
 
@@ -142,7 +168,7 @@ doc = f"<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><style>{CS
 nomes = ["01-capa", "02-universidades", "03-bloqueio", "04-reitores", "05-ministro-curriculo", "06-internet-veto", "07-fechamento"]
 with sync_playwright() as p:
     b = p.chromium.launch()
-    pg = b.new_page(viewport={"width": 1080, "height": 1920}, device_scale_factor=1)
+    pg = b.new_page(viewport={"width": 1400, "height": 2400}, device_scale_factor=1)
     pg.goto((BASE / "stories.html").as_uri())
     pg.wait_for_timeout(600)
     for i, el in enumerate(pg.query_selector_all("section.pg")):
